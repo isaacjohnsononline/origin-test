@@ -1,0 +1,8 @@
+.cache
+dist
+node_modules
+
+.vscode
+*.code-*
+
+.nyc_output
