@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { useSelector } from './redux/store';
+
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -10,6 +12,9 @@ import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
 
 function App() {
+  const tableData = useSelector((state) => state.table.data);
+  const loading = useSelector((state) => state.table.loading);
+
   return (
     <Container fixed>
       <TableContainer component={Paper}>
@@ -23,10 +28,17 @@ function App() {
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableCell>test</TableCell>
-            <TableCell>test</TableCell>
-            <TableCell>test</TableCell>
-            <TableCell>test</TableCell>
+            {tableData.map((row: any, index: number) => (
+              <TableRow key={row.id}>
+                <TableCell>{row.name}</TableCell>
+                <TableCell>{row.email}</TableCell>
+                <TableCell>{row.phone}</TableCell>
+                <TableCell>{row.website}</TableCell>
+              </TableRow>
+            ))}
+            {/* <TableCell>
+
+            </TableCell> */}
           </TableBody>
         </Table>
       </TableContainer>

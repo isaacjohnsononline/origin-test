@@ -1,5 +1,13 @@
 const initialState: ITableState = {
-  data: [],
+  data: [
+    {
+      id: '0',
+      name: 'test',
+      email: 'test@gmail.com',
+      website: 'www.test.com',
+      phone: '1234123',
+    },
+  ],
   loading: false,
   error: '',
 };

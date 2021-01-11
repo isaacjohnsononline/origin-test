@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import tableReducer from './reducers/table';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { createSelectorHook } from 'react-redux';
 
 const rootReducer = combineReducers<IRootState, TRootActions>({
   table: tableReducer,
@@ -10,5 +11,8 @@ const rootReducer = combineReducers<IRootState, TRootActions>({
 });
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+
+// typed selector for autocompletion
+export const useSelector = createSelectorHook<IRootState>();
 
 export default store;
