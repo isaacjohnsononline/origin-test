@@ -10,18 +10,24 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import Fade from '@material-ui/core/Fade';
 
 import EditableCell from './components/EditableCell';
 
 function App() {
   const tableData = useSelector((state) => state.table.data);
-  const loading = useSelector((state) => state.table.loading);
+  // const loading = useSelector((state) => state.table.loading);
+  const loading = true;
 
   const dispatch = useDispatch();
 
   return (
     <Container fixed>
       <TableContainer component={Paper}>
+        <Fade in={loading}>
+          <LinearProgress />
+        </Fade>
         <Table>
           <TableHead>
             <TableRow>
