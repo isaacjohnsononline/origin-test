@@ -1,6 +1,4 @@
-import React from 'react';
-
-import { useSelector, useDispatch } from './redux/store';
+import React, { useEffect } from 'react';
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -13,14 +11,20 @@ import Container from '@material-ui/core/Container';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Fade from '@material-ui/core/Fade';
 
+import { useSelector, useDispatch } from './redux/store';
+import { getTableDataFromAPI } from './redux/actions/table';
+
 import EditableCell from './components/EditableCell';
 
 function App() {
   const tableData = useSelector((state) => state.table.data);
-  // const loading = useSelector((state) => state.table.loading);
-  const loading = true;
+  const loading = useSelector((state) => state.table.loading);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTableDataFromAPI() as any);
+  }, []);
 
   return (
     <Container fixed>

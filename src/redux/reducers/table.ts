@@ -1,13 +1,5 @@
 const initialState: ITableState = {
-  data: [
-    {
-      id: '0',
-      name: 'test',
-      email: 'test@gmail.com',
-      website: 'www.test.com',
-      phone: '1234123',
-    },
-  ],
+  data: [],
   loading: false,
   error: '',
 };
@@ -27,6 +19,7 @@ export default function tableReducer(state: ITableState = initialState, action: 
     case 'SET_DATA':
       return {
         ...state,
+        data: action.value,
       };
     case 'SET_LOADING':
       return {
