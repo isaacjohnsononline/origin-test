@@ -31,6 +31,11 @@ interface ITableSetLoading {
   value: boolean;
 }
 
+interface ITableUndefined {
+  type: undefined;
+  value: undefined;
+}
+
 interface ITableRow {
   id: string;
   name: string;
@@ -42,7 +47,7 @@ interface ITableRow {
 /**
  * Table Types
  */
-type TTableActions = ITableSetData | ITableEditCell | ITableSetError | ITableSetLoading;
+type TTableActions = ITableSetData | ITableEditCell | ITableSetError | ITableSetLoading | ITableUndefined;
 
 /**
  * Root Interfaces

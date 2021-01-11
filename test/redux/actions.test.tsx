@@ -22,7 +22,7 @@ const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 const store = mockStore(initialState);
 
-describe('reducers', () => {
+describe('redux actions', () => {
   describe('async actions', () => {
     afterEach(() => {
       mock.reset();
