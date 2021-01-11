@@ -1,15 +1,10 @@
-# Basic React + Parcel template
+# Origin Energy coding assignment Isaac Johnson <isaacjohnsononline@gmail.com>
 
-A simple setup for React apps using [Parcel](https://parceljs.org/) as the bundler with Mocha + Enzyme test setup.
+## Install and run app
 
-## Development
+- `yarn`
+- `yarn start`
 
-- Install node.js, ideally using [nvm](https://github.com/creationix/nvm) or through `apt-get` or `brew`
-- `npm install`
-- `npm start`, will run Parcel on watch mode, simply visit `http://localhost:1234`
-- When you're done `npm run build`, bundled files will be placed in `dist`
-- Open `dist/index.html` to see the component in context
+## Test the app
 
-Run tests:
-
-- Once with `npm test`
+- `yarn test`
