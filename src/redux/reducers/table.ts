@@ -17,6 +17,12 @@ export default function tableReducer(state: ITableState = initialState, action: 
     case 'EDIT_DATA':
       return {
         ...state,
+        data: state.data.map((item, idx) => {
+          if (idx === action.value.row) {
+            return { ...item, [action.value.field]: action.value.value };
+          }
+          return item;
+        }),
       };
     case 'SET_DATA':
       return {

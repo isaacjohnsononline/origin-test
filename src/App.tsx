@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useSelector } from './redux/store';
+import { useSelector, useDispatch } from './redux/store';
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -10,10 +10,13 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
+import { Input } from '@material-ui/core';
 
 function App() {
   const tableData = useSelector((state) => state.table.data);
   const loading = useSelector((state) => state.table.loading);
+
+  const dispatch = useDispatch();
 
   return (
     <Container fixed>
@@ -30,15 +33,52 @@ function App() {
           <TableBody>
             {tableData.map((row: any, index: number) => (
               <TableRow key={row.id}>
-                <TableCell>{row.name}</TableCell>
-                <TableCell>{row.email}</TableCell>
-                <TableCell>{row.phone}</TableCell>
-                <TableCell>{row.website}</TableCell>
+                <TableCell>
+                  <Input
+                    value={row.name}
+                    onChange={(event: React.ChangeEvent<{ value: string }>) => {
+                      dispatch({
+                        type: 'EDIT_DATA',
+                        value: { row: index, field: 'name', value: event.target.value },
+                      });
+                    }}
+                  />
+                </TableCell>
+                <TableCell>
+                  <Input
+                    value={row.email}
+                    onChange={(event: React.ChangeEvent<{ value: string }>) => {
+                      dispatch({
+                        type: 'EDIT_DATA',
+                        value: { row: index, field: 'email', value: event.target.value },
+                      });
+                    }}
+                  />
+                </TableCell>
+                <TableCell>
+                  <Input
+                    value={row.phone}
+                    onChange={(event: React.ChangeEvent<{ value: string }>) => {
+                      dispatch({
+                        type: 'EDIT_DATA',
+                        value: { row: index, field: 'phone', value: event.target.value },
+                      });
+                    }}
+                  />
+                </TableCell>
+                <TableCell>
+                  <Input
+                    value={row.website}
+                    onChange={(event: React.ChangeEvent<{ value: string }>) => {
+                      dispatch({
+                        type: 'EDIT_DATA',
+                        value: { row: index, field: 'website', value: event.target.value },
+                      });
+                    }}
+                  />
+                </TableCell>
               </TableRow>
             ))}
-            {/* <TableCell>
-
-            </TableCell> */}
           </TableBody>
         </Table>
       </TableContainer>
