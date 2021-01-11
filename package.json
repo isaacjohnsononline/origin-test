@@ -2,7 +2,7 @@
   "name": "origin-assignment",
   "repository": {
     "type": "git",
-    "url": "git@github.com:isaacjohnsononline/origin-test.git"
+    "url": "https://github.com/isaacjohnsononline/origin-test.git"
   },
   "version": "1.0.0",
   "description": "Origin Energy Assignment - Isaac Johnson",
