@@ -11,13 +11,13 @@ This will also generate a instanbul coverage report in the terminal as well as a
 
 - `yarn test`
 
-### Demonstrate how the unit test could be automated as part of a CI/CD pipeline
+## Demonstrate how the unit test could be automated as part of a CI/CD pipeline
 
 - `yarn test:ci`
 - This package script could be ran as a git hook on the CI/CD build pipeline
 - This will output a mocha-junit-reporter xml file
 
-### AWS LAMBDA and API GATEWAY URL
+## AWS LAMBDA and API GATEWAY URL
 
 - https://b6al1lpjff.execute-api.us-east-2.amazonaws.com/users
 
