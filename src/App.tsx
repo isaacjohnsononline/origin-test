@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback } from 'react';
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -19,15 +19,18 @@ import EditableCell from './components/EditableCell';
 function App() {
   const tableData = useSelector((state) => state.table.data);
   const loading = useSelector((state) => state.table.loading);
+  const region = useSelector((state) => state.table.region);
+  const runtime = useSelector((state) => state.table.runtime);
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getTableDataFromAPI() as any);
-  }, []);
+  const getUsers = useCallback(() => dispatch(getTableDataFromAPI() as any), []);
 
   return (
     <Container fixed>
+      <button onClick={getUsers}>Get Users</button>
+      {region && <div className='aws'>Region: {region}</div>}
+      {runtime && <div className='aws'>Runtime: {runtime}</div>}
       <TableContainer component={Paper}>
         <Fade in={loading}>
           <LinearProgress />

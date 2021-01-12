@@ -2,6 +2,8 @@ const initialState: ITableState = {
   data: [],
   loading: false,
   error: '',
+  region: '',
+  runtime: '',
 };
 
 export default function tableReducer(state: ITableState = initialState, action: TTableActions): ITableState {
@@ -20,6 +22,12 @@ export default function tableReducer(state: ITableState = initialState, action: 
       return {
         ...state,
         data: action.value,
+      };
+    case 'SET_META':
+      return {
+        ...state,
+        region: action.value.region,
+        runtime: action.value.runtime,
       };
     case 'SET_LOADING':
       return {

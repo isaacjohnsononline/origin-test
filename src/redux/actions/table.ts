@@ -8,11 +8,12 @@ export const getTableDataFromAPI = (): TThunkActions => {
     dispatch({ type: 'SET_LOADING', value: true });
 
     try {
-      const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+      const response = await axios.get('https://b6al1lpjff.execute-api.us-east-2.amazonaws.com/users');
 
-      const data = mapTableData(response.data);
+      const data = mapTableData(response.data.data);
 
       dispatch({ type: 'SET_DATA', value: data });
+      dispatch({ type: 'SET_META', value: { region: response.data.region, runtime: response.data.runtime } });
     } catch (error) {
       dispatch({ type: 'SET_ERROR', value: error.message });
     } finally {

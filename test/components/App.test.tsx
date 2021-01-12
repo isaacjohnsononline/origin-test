@@ -13,6 +13,8 @@ import App from '../../src/App';
 
 const mockState = {
   table: {
+    region: 'region',
+    runtime: 'runtime',
     loading: false,
     error: '',
     data: [
@@ -49,5 +51,27 @@ describe('<App />', () => {
     );
 
     expect(wrapper.find('input').length).to.equal(4);
+  });
+
+  it('Component renders get users button', () => {
+    const store = mockStore(mockState);
+    const wrapper = mount(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+
+    expect(wrapper.find('button').length).to.equal(1);
+  });
+
+  it('Component renders get users button', () => {
+    const store = mockStore(mockState);
+    const wrapper = mount(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+
+    expect(wrapper.find('.aws').length).to.equal(2);
   });
 });

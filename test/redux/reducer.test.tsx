@@ -7,6 +7,8 @@ const initialState: ITableState = {
   data: [],
   loading: false,
   error: '',
+  region: '',
+  runtime: '',
 };
 
 // fake data
@@ -63,6 +65,13 @@ describe('redux reducers', () => {
     expect(newState.data[0].name == 'bob');
     expect(newState.data[1].name == 'jane');
     expect(newState.data[2].name == 'sarah');
+  });
+
+  it('handles the SET_META action', () => {
+    const newState = reducer(initialState, { type: 'SET_META', value: { region: 'region', runtime: 'runtime' } });
+
+    expect(newState.region).to.equal('region');
+    expect(newState.runtime).to.equal('runtime');
   });
 
   it('handles the EDIT_DATA action correctly', () => {

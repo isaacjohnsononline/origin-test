@@ -5,11 +5,21 @@ interface ITableState {
   data: ITableRow[];
   loading: boolean;
   error: string;
+  region: string;
+  runtime: string;
 }
 
 interface ITableSetData {
   type: 'SET_DATA';
   value: ITableState['data'];
+}
+
+interface ITableSetMeta {
+  type: 'SET_META';
+  value: {
+    region: string;
+    runtime: string;
+  };
 }
 
 interface ITableEditCell {
@@ -47,7 +57,13 @@ interface ITableRow {
 /**
  * Table Types
  */
-type TTableActions = ITableSetData | ITableEditCell | ITableSetError | ITableSetLoading | ITableUndefined;
+type TTableActions =
+  | ITableSetData
+  | ITableEditCell
+  | ITableSetError
+  | ITableSetLoading
+  | ITableSetMeta
+  | ITableUndefined;
 
 /**
  * Root Interfaces
