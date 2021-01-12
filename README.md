@@ -51,7 +51,9 @@ used for the lambda
 The assessment will be conducted on the contents of the repo you provide. The assessment will guide
 Origin in the selection process. We encourage you to present only your own work as a follow up
 interview may ask you about your assignment task.
-Task 1 should take no longer than 1 hour to complete.
-Task 2 should take no longer than 1 hour to complete.
-Task 3 should take no longer than 2 hours to complete.
+
+- Task 1 should take no longer than 1 hour to complete.
+- Task 2 should take no longer than 1 hour to complete.
+- Task 3 should take no longer than 2 hours to complete.
+
 Please submit assignments to your recruitment agency or service provider company via email.
